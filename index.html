@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suno Prompt Generator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border: 1px solid #ddd;
+      white-space: pre-wrap;
+      min-height: 120px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Suno Prompt Generator</h1>
+
+<input id="genre" placeholder="Genre (Latin Pop, Rock, EDM...)">
+
+<input id="mood" placeholder="Mood (Hopeful, Sad, Energetic...)">
+
+<input id="language" placeholder="Language (English, Spanish...)">
+
+<input id="theme" placeholder="Theme (Love, Freedom, Night...)">
+
+<button onclick="generatePrompt()">
+Generate Prompt
+</button>
+
+<div id="output"></div>
+
+<script>
+
+function generatePrompt() {
+
+  const genre =
+    document.getElementById('genre').value;
+
+  const mood =
+    document.getElementById('mood').value;
+
+  const language =
+    document.getElementById('language').value;
+
+  const theme =
+    document.getElementById('theme').value;
+
+  let style = "";
+
+  if (genre.toLowerCase().includes("latin")) {
+    style +=
+      "Modern Latin Pop, acoustic guitar, summer vibe, ";
+  }
+
+  if (genre.toLowerCase().includes("rock")) {
+    style +=
+      "Powerful electric guitar, energetic drums, stadium atmosphere, ";
+  }
+
+  if (genre.toLowerCase().includes("edm")) {
+    style +=
+      "Festival energy, synth leads, powerful drops, ";
+  }
+
+  if (mood.toLowerCase().includes("hope")) {
+    style +=
+      "hopeful atmosphere, uplifting melody, emotional chorus, ";
+  }
+
+  if (mood.toLowerCase().includes("sad")) {
+    style +=
+      "melancholic mood, emotional vocals, cinematic feeling, ";
+  }
+
+  if (mood.toLowerCase().includes("energetic")) {
+    style +=
+      "high energy, driving rhythm, exciting dynamics, ";
+  }
+
+  if (language.toLowerCase().includes("spanish")) {
+    style +=
+      "Spanish lyrics, authentic Latin expression, ";
+  }
+
+  if (language.toLowerCase().includes("english")) {
+    style +=
+      "English lyrics, global commercial appeal, ";
+  }
+
+  const prompt =
+`
+Theme: ${theme}
+
+${style}
+
+radio-ready production,
+professional mix,
+catchy melody,
+high-quality arrangement
+`;
+
+  document.getElementById('output').innerText =
+    prompt;
+
+}
+
+</script>
+
+</body>
+</html>
